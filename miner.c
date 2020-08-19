@@ -213,8 +213,8 @@ void print_digits(int value, int x, int y, int spacing)
     {
         int mm = max == 0 ? 0 : value / max;
 
-        get_res_params(0, mm, &res_params);
-        show_elf_res_by_id(0, mm, x, y);
+        get_res_params(ELF_INDEX_SELF, mm, &res_params);
+        show_elf_res_by_id(ELF_INDEX_SELF, mm, x, y);
         x += res_params.width + spacing;
         if (max == 0)
             break;
@@ -231,9 +231,9 @@ void draw_screen()
     set_bg_color(COLOR_YELLOW);
     fill_screen_bg();
 
-    show_elf_res_by_id(0, RES_MINA, 6, 9);
+    show_elf_res_by_id(ELF_INDEX_SELF, RES_MINA, 6, 9);
     print_digits(appdata->mines, 25, 8, 1);
-    show_elf_res_by_id(0, RES_CLOCK, 47, 9);
+    show_elf_res_by_id(ELF_INDEX_SELF, RES_CLOCK, 47, 9);
     print_digits(appdata->time, 68, 8, 1);
 
     for (int i = 30; i < 176; i += 29)
@@ -249,16 +249,16 @@ void draw_screen()
     {
         case STATE_STARTING:
         case STATE_PLAY:
-            show_elf_res_by_id(0, RES_SMILE, 137, 5);
+            show_elf_res_by_id(ELF_INDEX_SELF, RES_SMILE, 137, 5);
             break;
         case STATE_WIN:
-            show_elf_res_by_id(0, RES_SMILE_OK, 137, 5);
+            show_elf_res_by_id(ELF_INDEX_SELF, RES_SMILE_OK, 137, 5);
             break;
         case STATE_LOSE:
-            show_elf_res_by_id(0, RES_SMILE_BAD, 137, 5);
+            show_elf_res_by_id(ELF_INDEX_SELF, RES_SMILE_BAD, 137, 5);
             break;
         case STATE_PLAY_O:
-            show_elf_res_by_id(0, RES_SMILE_O, 137, 5);
+            show_elf_res_by_id(ELF_INDEX_SELF, RES_SMILE_O, 137, 5);
             appdata->state = STATE_PLAY;
             break;
     }
@@ -301,7 +301,7 @@ void draw_screen()
         if (appdata->state == STATE_LOSE || appdata->state == STATE_WIN)
         {
             if ((appdata->board[i] & MINE_FLAG) == MINE_FLAG)
-                show_elf_res_by_id(0, RES_BIG_MINA, 2 + 29 * x, 31 + 29 * y);
+                show_elf_res_by_id(ELF_INDEX_SELF, RES_BIG_MINA, 2 + 29 * x, 31 + 29 * y);
         }
 
     }
