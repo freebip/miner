@@ -92,7 +92,7 @@ void show_screen(void* p)
 
     draw_screen();
 
-    // не выключаем экран, не выключаем подсветку
+    // РЅРµ РІС‹РєР»СЋС‡Р°РµРј СЌРєСЂР°РЅ, РЅРµ РІС‹РєР»СЋС‡Р°РµРј РїРѕРґСЃРІРµС‚РєСѓ
     set_display_state_value(8, 1);
     set_display_state_value(4, 1);
     set_display_state_value(2, 0);
