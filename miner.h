@@ -15,6 +15,7 @@ struct appdata_t
     byte mines;
     word time;
     int state;
+    int mode;
     unsigned long randseed;
 };
 
@@ -25,7 +26,10 @@ struct appdata_t
 
 #define MINE_FLAG 0x80
 #define OPEN_CELL_FLAG 0x40
+#define SET_FLAG 0x20
 
+#define MODE_SET_FLAG 0
+#define MODE_MINA 1
 
 // state
 
@@ -44,6 +48,9 @@ struct appdata_t
 #define RES_SMILE_BAD 14
 #define RES_SMILE_O 15
 #define RES_SMILE_OK 16
+#define RES_FLAG 17
+#define RES_MODE_FLAG 18
+#define RES_MODE_MINA 19
 
 void show_screen(void* return_screen);
 void keypress_screen();
